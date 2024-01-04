@@ -21,7 +21,8 @@
   <modules>
 	  <module>microservice-gateway</module>
 	  <module>microservice-eureka</module>
-	  <module>microservice-config</module> 
+	  <module>microservice-config</module>
+      <module>microservice-coin</module>
   </modules>
 
   <properties>
