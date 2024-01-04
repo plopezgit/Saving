@@ -8,8 +8,10 @@ spring:
     mongodb:
       host: localhost
       port: 27017
-      database: coins
+      database: saving
       auto-index-creation: true
+  config:
+    import: optional:configserver:http://localhost:8888
 
 eureka:
   instance:
