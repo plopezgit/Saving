@@ -19,7 +19,7 @@
   <packaging>pom</packaging>
   
   <modules>
-	  <module>microservice-gateway</module> 
+	  <module>microservice-gateway</module>
 	  <module>microservice-eureka</module>
 	  <module>microservice-config</module> 
   </modules>
@@ -31,13 +31,13 @@
   </properties>
 
   <dependencies>
-	  <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-	  <dependency>
-	      <groupId>org.projectlombok</groupId>
-	      <artifactId>lombok</artifactId>
-	      <version>1.18.30</version>
-	      <scope>provided</scope>
-	  </dependency>
+      <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+      <dependency>
+          <groupId>org.projectlombok</groupId>
+          <artifactId>lombok</artifactId>
+          <version>1.18.24</version>
+          <scope>provided</scope>
+      </dependency>
   </dependencies>
 
   <build>
@@ -46,7 +46,7 @@
 			  <plugin> 
 				  <groupId>org.springframework.boot</groupId>
 				  <artifactId>spring-boot-maven-plugin</artifactId>
-				  <version>3.2.1</verision>
+				  <version>3.2.1</version>
 			  </plugin>
 		  </plugins>
 	  </pluginManagement>
