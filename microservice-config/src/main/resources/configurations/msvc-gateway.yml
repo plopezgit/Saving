@@ -1,0 +1,23 @@
+eureka:
+  client:
+    register-with-eureka: false
+server:
+  port: 8080
+spring:
+  application:
+    name: msvc-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: coins
+          uri: http://localhost:8090
+          predicates:
+            - Path=/coins/**
+        - id: piggies
+          uri: http://localhost:9090
+          predicates:
+            - Path=/piggies/**
+
