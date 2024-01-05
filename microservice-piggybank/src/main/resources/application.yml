@@ -1,0 +1,21 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: msvc-piggybank
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: saving
+      auto-index-creation: true
+  config:
+    import: optional:configserver:http://localhost:8888
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka
