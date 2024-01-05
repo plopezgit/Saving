@@ -23,6 +23,7 @@
 	  <module>microservice-eureka</module>
 	  <module>microservice-config</module>
       <module>microservice-coin</module>
+      <module>microservice-piggybank</module>
   </modules>
 
   <properties>
