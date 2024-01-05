@@ -3,6 +3,7 @@ package com.saving.microservice.coin.controller;
 import java.util.HashMap;
 import com.saving.microservice.coin.entity.Coin;
 import com.saving.microservice.coin.service.CoinService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,9 +12,10 @@ import java.rmi.ServerException;
 import java.util.List;
 
 @RestController
-@RequestMapping("coins")
+@RequestMapping("/coins")
 public class CoinController {
 
+    @Autowired
     private CoinService coinService;
 
     @PostMapping
@@ -61,9 +63,9 @@ public class CoinController {
         return ResponseEntity.ok(coinService.getAllCoins());
     }
 
-    @GetMapping("/search-by-piggyBank/{id}")
-    public ResponseEntity<?> findAllCoinsByPiggyBankId (@PathVariable Long id) {
-        return ResponseEntity.ok(coinService.getCoinByPiggyBankId(id));
+    @GetMapping("/search-by-piggyBank/{piggyBankId}")
+    public ResponseEntity<?> findAllCoinsByPiggyBankId (@PathVariable Long piggyBankId) {
+        return ResponseEntity.ok(coinService.getCoinByPiggyBankId(piggyBankId));
     }
 
 }

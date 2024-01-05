@@ -2,6 +2,7 @@ package com.saving.microservice.piggybank.controller;
 
 import com.saving.microservice.piggybank.entity.PiggyBank;
 import com.saving.microservice.piggybank.service.PiggyBankService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,13 +12,14 @@ import java.util.HashMap;
 import java.util.List;
 
 @RestController
-@RequestMapping("piggies")
+@RequestMapping("/piggies")
 public class PiggyBankController {
 
+    @Autowired
     private PiggyBankService piggyService;
 
     @PostMapping
-    public ResponseEntity<PiggyBank> createCoin (@RequestBody PiggyBank piggy ) throws ServerException {
+    public ResponseEntity<PiggyBank> createPiggyBank (@RequestBody PiggyBank piggy ) throws ServerException {
         PiggyBank newPiggy = piggyService.createPiggy(piggy);
         if (newPiggy == null) {
             throw new ServerException("There is server exception error, please try again later.");
@@ -27,7 +29,7 @@ public class PiggyBankController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<PiggyBank> updateCoin (@PathVariable Long id, @RequestBody PiggyBank piggy) {
+    public ResponseEntity<PiggyBank> updatePiggyBank (@PathVariable Long id, @RequestBody PiggyBank piggy) {
         PiggyBank thisPiggy = piggyService.getOnePiggyById(id);
         thisPiggy.setCapacity(piggy.getCapacity());
         thisPiggy.setCharacter(piggy.getCharacter());
@@ -51,13 +53,13 @@ public class PiggyBankController {
     }
 
     @GetMapping ("{id}")
-    public ResponseEntity<PiggyBank> getOneCoinByID (@PathVariable Long id) {
+    public ResponseEntity<PiggyBank> getOnePiggyBankByID (@PathVariable Long id) {
         PiggyBank thisPiggy = piggyService.getOnePiggyById(id);
         return ResponseEntity.ok(thisPiggy);
     }
 
     @GetMapping
-    public ResponseEntity<List<PiggyBank>> getAllCoins () {
+    public ResponseEntity<List<PiggyBank>> getAllPiggies () {
         return ResponseEntity.ok(piggyService.getAllPiggies());
     }
 

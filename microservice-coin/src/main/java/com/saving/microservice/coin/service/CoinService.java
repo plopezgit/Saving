@@ -35,8 +35,8 @@ public class CoinService implements CoinServiceInterface {
     }
 
     @Override
-    public List<Coin> getCoinByPiggyBankId(Long id) {
-        return coins.findAllCoinsByPiggyBankID(id);
+    public List<Coin> getCoinByPiggyBankId(Long piggyBankId) {
+        return coins.findAllCoinsByPiggyBankId(piggyBankId);
     }
 
 }
