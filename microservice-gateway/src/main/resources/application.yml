@@ -12,11 +12,11 @@ spring:
           enabled: true
       routes:
         - id: coins
-          url: http://localhost:8090/coins
+          uri: http://localhost:8090
           predicates:
-            Path=/coins/**
+            - Path=coins/**
         - id: piggies
-          url: http://localhost:9090/coins
+          uri: http://localhost:9090
           predicates:
-            Path=/piggies/**
+            - Path=piggies/**
 
