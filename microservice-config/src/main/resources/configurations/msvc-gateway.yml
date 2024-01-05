@@ -1,8 +1,10 @@
 eureka:
   client:
     register-with-eureka: false
+
 server:
   port: 8080
+
 spring:
   application:
     name: msvc-gateway
@@ -20,4 +22,3 @@ spring:
           uri: http://localhost:9090
           predicates:
             - Path=/piggies/**
-

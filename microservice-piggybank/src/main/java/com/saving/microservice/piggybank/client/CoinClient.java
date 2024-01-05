@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name="msvc-coin", url= "localhost:8090/coins")
+@FeignClient(name="msvc-coin", url= "localhost:8080/coins")
 public interface CoinClient {
 
     @GetMapping("/search-By-PiggyBank/{id}")
