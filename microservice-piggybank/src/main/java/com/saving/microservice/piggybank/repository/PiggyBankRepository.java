@@ -5,6 +5,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PiggyBankRepository extends MongoRepository<PiggyBank, Integer> {
+public interface PiggyBankRepository extends MongoRepository<PiggyBank, Long> {
 
 }

@@ -27,7 +27,7 @@ public class PiggyBankController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<PiggyBank> updateCoin (@PathVariable int id, @RequestBody PiggyBank piggy) {
+    public ResponseEntity<PiggyBank> updateCoin (@PathVariable Long id, @RequestBody PiggyBank piggy) {
         PiggyBank thisPiggy = piggyService.getOnePiggyById(id);
         thisPiggy.setCapacity(piggy.getCapacity());
         thisPiggy.setCharacter(piggy.getCharacter());
@@ -40,7 +40,7 @@ public class PiggyBankController {
     }
 
     @DeleteMapping ("{id}")
-    public ResponseEntity<HashMap<String, Boolean>> deletePiggy (@PathVariable int id) {
+    public ResponseEntity<HashMap<String, Boolean>> deletePiggy (@PathVariable Long id) {
         piggyService.deletePiggy(id);
 
         HashMap<String, Boolean> piggyDeletedState = new HashMap<>();
@@ -51,7 +51,7 @@ public class PiggyBankController {
     }
 
     @GetMapping ("{id}")
-    public ResponseEntity<PiggyBank> getOneCoinByID (@PathVariable int id) {
+    public ResponseEntity<PiggyBank> getOneCoinByID (@PathVariable Long id) {
         PiggyBank thisPiggy = piggyService.getOnePiggyById(id);
         return ResponseEntity.ok(thisPiggy);
     }
@@ -61,4 +61,8 @@ public class PiggyBankController {
         return ResponseEntity.ok(piggyService.getAllPiggies());
     }
 
+    @GetMapping("/search-coins/{id}")
+    public ResponseEntity<?> findCoinsByPiggyBankId(@PathVariable Long id){
+        return ResponseEntity.ok(piggyService.findCoinsByPiggyId(id));
+    }
 }

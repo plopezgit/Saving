@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface CoinRepository extends MongoRepository<Coin, Long> {
-    List<Coin> findAllCoinsByPiggyBankID (long id);
+    List<Coin> findAllCoinsByPiggyBankID (Long id);
 }

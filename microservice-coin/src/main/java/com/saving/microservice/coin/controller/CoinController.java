@@ -27,7 +27,7 @@ public class CoinController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Coin> updateCoin (@PathVariable int id, @RequestBody Coin coin) {
+    public ResponseEntity<Coin> updateCoin (@PathVariable Long id, @RequestBody Coin coin) {
         Coin thisCoin = coinService.getOneCoinById(id);
         thisCoin.setPiggyBankId(coin.getPiggyBankId());
         thisCoin.setObverse(coin.getObverse());
@@ -40,7 +40,7 @@ public class CoinController {
     }
 
     @DeleteMapping ("{id}")
-    public ResponseEntity<HashMap<String, Boolean>> deleteCoin (@PathVariable int id) {
+    public ResponseEntity<HashMap<String, Boolean>> deleteCoin (@PathVariable Long id) {
         coinService.deleteCoin(id);
 
         HashMap<String, Boolean> coinDeletedState = new HashMap<>();
@@ -51,7 +51,7 @@ public class CoinController {
     }
 
     @GetMapping ("{id}")
-    public ResponseEntity<Coin> getOneCoinByID (@PathVariable int id) {
+    public ResponseEntity<Coin> getOneCoinByID (@PathVariable Long id) {
         Coin thisCoin = coinService.getOneCoinById(id);
         return ResponseEntity.ok(thisCoin);
     }
@@ -59,6 +59,11 @@ public class CoinController {
     @GetMapping
     public ResponseEntity<List<Coin>> getAllCoins () {
         return ResponseEntity.ok(coinService.getAllCoins());
+    }
+
+    @GetMapping("/search-by-piggyBank/{id}")
+    public ResponseEntity<?> findAllCoinsByPiggyBankId (@PathVariable Long id) {
+        return ResponseEntity.ok(coinService.getCoinByPiggyBankId(id));
     }
 
 }

@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Builder
 @Document(collection="piggybanks")
 public class PiggyBank {
-    private long id;
+    private Long id;
     private int capacity;
     private String character;
     private String mood;
