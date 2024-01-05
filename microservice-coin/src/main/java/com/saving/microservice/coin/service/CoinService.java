@@ -19,12 +19,12 @@ public class CoinService implements CoinServiceInterface {
     }
 
     @Override
-    public void deleteCoin(int id) {
+    public void deleteCoin(long id) {
         coins.deleteById(id);
     }
 
     @Override
-    public Coin getOneCoinById(int id) {
+    public Coin getOneCoinById(long id) {
         Optional<Coin> optionalCoin = coins.findById(id);
         return optionalCoin.get();
     }
@@ -34,8 +34,9 @@ public class CoinService implements CoinServiceInterface {
         return coins.findAll();
     }
 
-    /*@Override
-    public void insertACoinOnAPiggyBank(int coinDd, int piggyBankId) {
+    @Override
+    public List<Coin> getCoinByPiggyBankId(long id) {
+        return coins.findAllCoinsByPiggyBankID(id);
+    }
 
-    }*/
 }

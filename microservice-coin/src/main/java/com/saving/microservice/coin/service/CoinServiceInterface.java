@@ -6,8 +6,8 @@ import com.saving.microservice.coin.entity.Coin;
 public interface CoinServiceInterface {
 
     Coin createCoin(Coin coin);
-    void deleteCoin(int id);
-    Coin getOneCoinById(int id);
+    void deleteCoin(long id);
+    Coin getOneCoinById(long id);
     List<Coin> getAllCoins();
-    /*public void insertACoinOnAPiggyBank(int coinDd, int piggyBankId);*/
+    List<Coin> getCoinByPiggyBankId(long id);
 }
